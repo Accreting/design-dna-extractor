@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "design-dna-extractor"
+version = "0.1.0"
+description = "Extract production-grade design tokens, Tailwind CSS v4 @theme blocks, and clean vector assets from any live website in one command."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Accreting" }]
+dependencies = [
+    "playwright>=1.40.0",
+    "httpx>=0.25.0",
+]
+
+[project.scripts]
+design-dna-extractor = "extract_design_dna:main"
+
+[tool.setuptools]
+py-modules = ["extract_design_dna"]
+packages = ["shared_infra"]

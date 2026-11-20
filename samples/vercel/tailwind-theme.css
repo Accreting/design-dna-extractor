@@ -1,0 +1,16 @@
+@theme {
+  --color-background: #fafafa;
+  --color-surface: #ffffff;
+  --color-foreground: #171717;
+  --color-muted: #8f8f8f;
+  --color-accent: #0072f5;
+  --color-border: #e2e8f0;
+
+  --font-display: "GeistSans", Geist, sans-serif;
+  --font-body: "GeistSans", Geist, sans-serif;
+  --font-mono: "Geist Mono", Geist Mono, monospace;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 12px;
+}

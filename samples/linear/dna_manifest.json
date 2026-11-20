@@ -1,0 +1,94 @@
+{
+  "title": "Linear \u2013 The system for product development",
+  "url": "https://linear.app",
+  "palette": {
+    "is_dark": true,
+    "background": {
+      "hex": "#08090a",
+      "rgb": [
+        8,
+        9,
+        10
+      ]
+    },
+    "surface": {
+      "hex": "#0f1011",
+      "rgb": [
+        15,
+        16,
+        17
+      ]
+    },
+    "foreground": {
+      "hex": "#f7f8f8",
+      "rgb": [
+        247,
+        248,
+        248
+      ],
+      "contrast": 18.73,
+      "status": "AA Normal PASS"
+    },
+    "accent": {
+      "hex": "#5e6ad2",
+      "rgb": [
+        94,
+        106,
+        210
+      ],
+      "contrast": 4.24,
+      "status": "AA Large/UI Only"
+    },
+    "muted": {
+      "hex": "#62666d",
+      "rgb": [
+        98,
+        102,
+        109
+      ]
+    },
+    "border": {
+      "hex": "#27272a"
+    }
+  },
+  "typography": {
+    "display": "Inter Variable",
+    "display_fallback": "Inter",
+    "body": "Inter Variable",
+    "body_fallback": "Inter",
+    "mono": "Berkeley Mono",
+    "mono_fallback": "JetBrains Mono"
+  },
+  "radii": {
+    "sm": "4px",
+    "md": "8px",
+    "lg": "12px",
+    "pill": null,
+    "card": "8px",
+    "button": "4px"
+  },
+  "specs": {
+    "h1": {
+      "font": "Inter Variable",
+      "size": "64px",
+      "weight": "510",
+      "lh": "64px"
+    },
+    "body": {
+      "font": "Inter Variable",
+      "size": "15px",
+      "lh": "24px"
+    },
+    "button": {
+      "radius": "9999px",
+      "shadow": "none",
+      "border": "0px none rgb(138, 143, 152)"
+    },
+    "card": {
+      "radius": "0px",
+      "shadow": "none",
+      "border": "0px none rgb(247, 248, 248)"
+    }
+  },
+  "prompt_preset": "You are designing modern web components matching linear.app.\n- Theme: Dark Mode (Background: #08090a, Surface: #0f1011)\n- Typography:\n  * Headings: Inter Variable (size 64px, line-height 64px, weight 510)\n  * Body & UI: Inter Variable (size 15px, line-height 24px)\n  * Code & Mono: Berkeley Mono (fallback: monospace)\n- Brand Accent: #5e6ad2 (Buttons, active tabs, interactive highlights)\n- Layout & Elevation:\n  * Card radius: 8px, Border: none, Shadow: none\n  * Button radius: 4px, Border: none"
+}

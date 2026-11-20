@@ -1,0 +1,94 @@
+{
+  "title": "Stripe | Financial Infrastructure to Grow Your Revenue",
+  "url": "https://stripe.com",
+  "palette": {
+    "is_dark": false,
+    "background": {
+      "hex": "#ffffff",
+      "rgb": [
+        255,
+        255,
+        255
+      ]
+    },
+    "surface": {
+      "hex": "#e5edf5",
+      "rgb": [
+        229,
+        237,
+        245
+      ]
+    },
+    "foreground": {
+      "hex": "#061b31",
+      "rgb": [
+        6,
+        27,
+        49
+      ],
+      "contrast": 17.37,
+      "status": "AA Normal PASS"
+    },
+    "accent": {
+      "hex": "#533afd",
+      "rgb": [
+        83,
+        58,
+        253
+      ],
+      "contrast": 6.19,
+      "status": "AA Normal PASS"
+    },
+    "muted": {
+      "hex": "#64748d",
+      "rgb": [
+        100,
+        116,
+        141
+      ]
+    },
+    "border": {
+      "hex": "#e2e8f0"
+    }
+  },
+  "typography": {
+    "display": "sohne-var",
+    "display_fallback": "Inter",
+    "body": "sohne-var",
+    "body_fallback": "Inter",
+    "mono": "SourceCodePro",
+    "mono_fallback": "JetBrains Mono"
+  },
+  "radii": {
+    "sm": "4px",
+    "md": "6px",
+    "lg": "6px",
+    "pill": null,
+    "card": "6px",
+    "button": "4px"
+  },
+  "specs": {
+    "h1": {
+      "font": "sohne-var",
+      "size": "48px",
+      "weight": "300",
+      "lh": "55.2px"
+    },
+    "body": {
+      "font": "sohne-var",
+      "size": "14px",
+      "lh": "19.6px"
+    },
+    "button": {
+      "radius": "4px",
+      "shadow": "none",
+      "border": "0px none rgb(0, 0, 0)"
+    },
+    "card": {
+      "radius": "0px",
+      "shadow": "none",
+      "border": "0px none rgb(0, 0, 0)"
+    }
+  },
+  "prompt_preset": "You are designing modern web components matching stripe.com.\n- Theme: Light Mode (Background: #ffffff, Surface: #e5edf5)\n- Typography:\n  * Headings: sohne-var (size 48px, line-height 55.2px, weight 300)\n  * Body & UI: sohne-var (size 14px, line-height 19.6px)\n  * Code & Mono: SourceCodePro (fallback: monospace)\n- Brand Accent: #533afd (Buttons, active tabs, interactive highlights)\n- Layout & Elevation:\n  * Card radius: 6px, Border: none, Shadow: none\n  * Button radius: 4px, Border: none"
+}

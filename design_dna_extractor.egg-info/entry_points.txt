@@ -1,0 +1,2 @@
+[console_scripts]
+design-dna-extractor = extract_design_dna:main

@@ -1,0 +1,108 @@
+# Design DNA Extractor
+
+> Extract production-grade design tokens, Tailwind CSS v4 `@theme` blocks, and clean vector assets from any live website in one command. Engineered specifically to eliminate generic templates and purple gradients in Cursor & Claude Code.
+
+<p align="center">
+  <img src="assets/stripe_showcase.png" alt="Stripe Visual DNA Extraction Showcase" width="100%" />
+</p>
+
+<p align="center">
+  <a href="#quickstart">Quickstart</a> •
+  <a href="#live-samples">Live Samples</a> •
+  <a href="#why-computed-styles-matter">Engineering Architecture</a> •
+  <a href="#chrome-extension--cloud-early-bird">Chrome Extension Waitlist</a>
+</p>
+
+---
+
+## ⚡ 1-Second Zero-Install Run (via uvx)
+
+No need to clone repositories or manually configure virtual environments. If you have [uv](https://docs.astral.sh/uv/) installed:
+
+```bash
+# Extract any reference site directly with uvx
+uvx --from git+https://github.com/Accreting/design-dna-extractor.git design-dna-extractor https://stripe.com
+```
+
+### Standard Local Installation (pip)
+
+```bash
+git clone https://github.com/Accreting/design-dna-extractor.git
+cd design-dna-extractor
+pip install -r requirements.txt
+playwright install chromium
+
+# Run extraction
+python extract_design_dna.py https://stripe.com
+```
+
+---
+
+## 🎁 What You Get (Output Structure)
+
+Running against any reference URL generates an isolated package under `samples/<domain>/`:
+
+```text
+samples/stripe/
+├── DESIGN.md                 # Token-compressed system prompt for .cursorrules / CLAUDE.md
+├── tailwind-theme.css        # Native Tailwind v4 @theme CSS block (zero legacy config)
+├── dna_manifest.json         # Raw machine-readable design tokens with WCAG AA status
+├── Obsidian_Inspiration.md   # Visual inspiration note with native markdown color chips
+└── svgs/                     # Live DOM-scraped, deduplicated SVGs with verified XML namespaces
+    ├── asset_01.svg          # Action icons (Close, Search, Arrows)
+    ├── asset_02.svg          # Brand vector logotypes
+    └── ...
+```
+
+---
+
+## 🎨 Live Samples (Inspect Directly in Your Browser)
+
+Compare the extracted outputs across distinct design languages:
+
+- [**Stripe** (Light System)](samples/stripe/DESIGN.md): Sohne typography, `#533afd` indigo CTA, neutral slate surface `#e5edf5`, 30 clean SVGs.
+- [**Linear** (Dark System)](samples/linear/DESIGN.md): Inter Variable / Berkeley Mono, `#5e6ad2` accent, `#0f1011` elevated surface, 30 clean SVGs.
+- [**Vercel** (Minimalist System)](samples/vercel/DESIGN.md): Geist Sans / Geist Mono, high-contrast monochrome token structure.
+
+---
+
+## 🧠 Why Computed Styles Matter: Engineering Architecture
+
+Most style grabbers rely on parsing static `.css` stylesheets or reading DOM attributes. In modern web apps, this fails completely due to CSS-in-JS (Emotion, styled-components), Tailwind utility class munging, and dynamic CSS variable scoping.
+
+```
+┌───────────────────────┐     ┌────────────────────────┐     ┌────────────────────────┐
+│   Live DOM Browser    │     │   WCAG AA Contrast     │     │   Token-Compressed     │
+│   Computed Styles     │ ──> │   Relative Luminance   │ ──> │   Output Artifacts     │
+│ (Area-weighted Rects) │     │ (Strict sRGB Linear)   │     │ (DESIGN.md / @theme)   │
+└───────────────────────┘     └────────────────────────┘     └────────────────────────┘
+```
+
+1. **Area-Weighted Container Tree Traversal**: Rather than trusting `body.backgroundColor` (which is often `rgba(0, 0, 0, 0)`), the extractor traverses the DOM hierarchy, calculating bounding boxes of top-level structural containers (`main`, `section`, `article`, `div`) to accurately resolve true canvas backgrounds and elevated surfaces.
+2. **Semantic Role Clustering**:
+   - **Background**: Maximum visible canvas area with transparency fallback.
+   - **Surface**: Highest frequency secondary container with neutral saturation (`sat < 0.20`).
+   - **Foreground / Text**: Primary text nodes with enforced WCAG AA contrast ($L_1 / L_2 \ge 4.5:1$).
+   - **Brand Accent**: Interactive CTA elements (`button`, `[role="button"]`, primary `a`) ranked by saturation.
+3. **SVG Geometry Extraction & Namespace Sanitization**: Scrapes inline `<svg>` nodes directly from the rendered DOM, strips tracking pixels/0-area artifacts, automatically injects required `xmlns="http://www.w3.org/2000/svg"` namespaces, deduplicates geometric paths, and normalizes viewBox ratios.
+4. **Token-Efficiency for AI Prompts**: Formats tokens into a dense, unambiguous markdown spec specifically structured to prevent LLMs (Claude Code, Cursor, Windsurf) from hallucinating default Tailwind purples or unreadable low-contrast subtexts.
+
+---
+
+## 🚀 Roadmap: Chrome Extension & Cloud Runner
+
+We are developing a 1-click Chrome Extension to inspect design tokens directly in your browser without terminal commands or local Python dependencies:
+
+- [x] Open-source Python CLI with local Chromium/Chrome reuse
+- [x] Tailwind v4 `@theme` generation & WCAG AA contrast matrix
+- [x] Live DOM inline SVG extraction & deduplication
+- [ ] Chrome Web Store Extension (Zero terminal setup, works behind private logins)
+- [ ] Cloud API for CI/CD and batch URL processing
+
+If you'd like to test the private beta of the Chrome extension, feel free to open a GitHub Discussion or Issue.
+
+---
+
+## 📄 License
+
+MIT License. Designed and maintained for modern vibe-coding workflows.
